@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 
-export default function AccordionItem({num, title, text}) {
+export default function AccordionItem({currentOpen, onOpen, num, title, children}) {
     //**************** variables ****************//
-    const [isOpen, setIsOpen] = useState(false);
+    const isOpen = num === currentOpen;
+
 
     //**************** functions ****************//
     function handleToggle() {
-        setIsOpen(isOpen => !isOpen);
+        onOpen(isOpen ? null : num);
     }
 
     return (
@@ -14,7 +15,7 @@ export default function AccordionItem({num, title, text}) {
             <p className="number">{num < 9 ? `0${num + 1}` : num + 1}</p>
             <p className="title">{title}</p>
             <p className="icon">{isOpen ? "-" : "+"}</p>
-            {isOpen && <div className="content-box">{text}</div>}
+            {isOpen && <div className="content-box">{children}</div>}
         </article>
 
     );
