@@ -1,13 +1,15 @@
 import React from 'react';
-import Accordion from "../components/Accordion";
-import {data} from '../data';
+import AccordionItem from "./AccordionItem";
 
-export default function App() {
+export default function Accordion({data}) {
 
     return (
-        <main className="u-wrapper">
-            <Accordion data={data} />
-        </main>
-
+        <section className="accordion">
+            <h2 className="u-text-center">Frequent Ask Questions</h2>
+            {data.map((el, i) => (
+                <AccordionItem title={el.title} text={el.text} num={i} key={el.title} />
+            ))}
+        </section>
     );
 };
+

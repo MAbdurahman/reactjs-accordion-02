@@ -1,6 +1,6 @@
 import React from 'react';
 import Accordion from "../components/Accordion";
-import {data} from './../data.js';
+import {data} from '../data';
 
 export default function App() {
 
